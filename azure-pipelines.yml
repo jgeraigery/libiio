@@ -166,7 +166,7 @@ stages:
     pool:
       vmImage: 'windows-2019'
     steps:
-    - task: DownloadPipelineArtifact@2
+    - task: DownloadPipelineArtifact@2.198.0
       inputs:
         path: '$(Build.ArtifactStagingDirectory)'
     - task: PowerShell@2
@@ -321,7 +321,7 @@ stages:
         cmake ..
         mkdir artifacts
       displayName: 'Build artifact manifest'
-    - task: DownloadPipelineArtifact@2
+    - task: DownloadPipelineArtifact@2.198.0
       inputs:
         path: '$(Agent.BuildDirectory)/s/build/artifacts'
     - script: ./CI/azure/prepare_assets.sh check
@@ -343,7 +343,7 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task: DownloadPipelineArtifact@2
+    - task: DownloadPipelineArtifact@2.198.0
       inputs:
         path: '$(Build.ArtifactStagingDirectory)'
     - bash: ./CI/azure/prepare_assets.sh swdownloads
@@ -365,7 +365,7 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task: DownloadPipelineArtifact@2
+    - task: DownloadPipelineArtifact@2.198.0
       inputs:
         path: '$(Build.ArtifactStagingDirectory)'
     - bash: ./CI/azure/prepare_assets.sh release
