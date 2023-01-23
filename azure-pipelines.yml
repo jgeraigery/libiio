@@ -99,7 +99,7 @@ stages:
     - task: UsePythonVersion@0
       inputs:
         versionSpec: '3.9'
-    - task: PowerShell@2
+    - task: PowerShell@2.210.0
       displayName: 'Dependencies'
       inputs:
         targetType: inline
@@ -116,7 +116,7 @@ stages:
           cd C:\
           wget http://swdownloads.analog.com/cse/build/libiio-win-deps-libusb1.0.24.zip -OutFile "libiio-win-deps.zip"
           7z x -y "C:\libiio-win-deps.zip"
-    - task: PowerShell@2
+    - task: PowerShell@2.210.0
       inputs:
         targetType: 'filePath'
         filePath: .\CI\build_win.ps1
@@ -150,7 +150,7 @@ stages:
         sourceFolder: '$(Agent.BuildDirectory)/s/build-$(ARCH)/bindings/csharp'
         contents: 'libiio-sharp.dll'
         targetFolder: '$(Build.ArtifactStagingDirectory)'
-    - task: PowerShell@2
+    - task: PowerShell@2.210.0
       displayName: 'Copy dependencies'
       inputs:
         targetType: 'filePath'
@@ -169,7 +169,7 @@ stages:
     - task: DownloadPipelineArtifact@2
       inputs:
         path: '$(Build.ArtifactStagingDirectory)'
-    - task: PowerShell@2
+    - task: PowerShell@2.210.0
       inputs:
         targetType: 'filePath'
         filePath: .\CI\generate_exe.ps1
