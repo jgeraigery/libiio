@@ -348,7 +348,7 @@ stages:
         path: '$(Build.ArtifactStagingDirectory)'
     - bash: ./CI/azure/prepare_assets.sh swdownloads
       displayName: "Prepare artifacts for SWDownloads"
-    - task: DownloadSecureFile@1
+    - task: DownloadSecureFile@1.212.0
       name: key
       displayName: 'Download rsa key'
       inputs:
